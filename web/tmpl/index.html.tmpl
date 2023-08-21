@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+            color: #000;
+            text-align: center;
+            }
+
+            .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            }
+            
+            .child {
+            padding: 10px 0 10px 0;
+            }
+            
+            .mr10 {
+            margin: 0 10px 0 0;
+            }
+            
+            .mr10 {
+            margin: 0 0 0 10px;
+            }
+
+            .quote {
+                position: absolute;
+                right: 20px;
+                bottom: 30px;
+                width: 300px;
+                padding: 10px;
+                background: #0009;
+                color: white;
+            }
+            
+            .img-container {
+                position: relative;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Tucows Interview Exercise</h1>
+        <div class="container">
+            <div class="child">
+            <form action="/" method="GET">
+                <input class="mr10" type="text" id="category" name="category" value="{{.Category}}" placeholder="Category">
+                <input type="checkbox" id="grayscale" name="grayscale" value="true" {{if .Grayscale}}checked{{end}}>
+                <label for="grayscale"> Grayscale</label>
+                <input class="ml10" type="submit" value="Generate">
+            </form>
+            </div>
+            <div class="child img-container"> 
+                <span class="quote">{{.QuoteText}}</span>
+                <img width="{{.ImageWidth}}" height="{{.ImageHeight}}" src="data:image/jpg;base64,{{.ImageBase64}}"/>
+            </div>
+        </div>
+    </body>
+</html>
